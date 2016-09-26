@@ -4,6 +4,7 @@
     <go-with></go-with>
     <fitting></fitting>
     <around></around>
+    <recommend></recommend>
   </div>
 </template>
 <script>
@@ -11,12 +12,14 @@
   import goWith from './goWith';
   import fitting from './fitting';
   import around from './around';
+  import recommend from './recommend';
   export default{
     components:{
       'hardware-goods':hardwareGoods,
       'go-with':goWith,
       fitting,
-      around
+      around,
+      recommend
     }
   }
 </script>
