@@ -102,11 +102,15 @@ export default {
       width:316px;
       height:100%;
       float: left;
+      margin-left: 12px;
+      transition: all .5s ease;
       img{
         width:100%;
         height:100%;
       }
-      margin-left: 12px;
+      &:hover{
+        box-shadow:0 15px 30px rgba(0,0,0,0.1);
+      }
     }
   }
 </style>

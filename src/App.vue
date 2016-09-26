@@ -5,6 +5,7 @@
     <top-banner></top-banner>
     <top-last></top-last>
     <star-goods></star-goods>
+    <bottom-section></bottom-section>
   </div>
 </template>
 <script>
@@ -13,13 +14,15 @@
   import TopBanner from './components/TopBanner';
   import TopLast from './components/TopLast';
   import starGoods from './components/starGoods';
+  import bottomSection from './components/bottomSection';
   export default{
     components:{
       'top-bar':TopBar,
       'top-header':TopHeader,
       'top-banner':TopBanner,
       'top-last':TopLast,
-      'star-goods':starGoods
+      'star-goods':starGoods,
+      'bottom-section':bottomSection
     }
   }
 </script>

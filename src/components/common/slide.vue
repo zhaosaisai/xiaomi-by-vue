@@ -1,10 +1,10 @@
 <template>
   <div class="banner-wrap" @mouseover="over" @mouseout="out">
     <span class="prev banner-btn" @click="prevSlide">
-      <i class="fa fa-chevron-left fa-2x fa-fw"></i>
+      <i class="fa fa-angle-left fa-2x fa-fw"></i>
     </span>
     <span class="next banner-btn" @click="nextSlide">
-      <i class="fa fa-chevron-right fa-2x fa-fw"></i>
+      <i class="fa fa-angle-right fa-2x fa-fw"></i>
     </span>
     <div class="img-wrap" v-for="slide in slideBar" v-show="$index === currentImg" transition="bannerTran">
       <a :href="slide.sourceUrl" target="_blank">

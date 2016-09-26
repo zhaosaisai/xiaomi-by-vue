@@ -1,0 +1,31 @@
+h2.goods-title{
+  color:#333;
+  font-weight:200;
+  font-size:22px;
+  line-height: 58px;
+  height:58px;
+  margin:0;
+  float: left;
+}
+
+.common-translate{
+  transition:all .5s ease;
+  &:hover{
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.special-title{
+  position: absolute;
+  width:64px;
+  height:20px;
+  top:-20px;
+  left:50%;
+  margin-left:-32px;
+  text-align: center;
+  line-height: 20px;
+  color:#fff;
+  font-size: 12px;
+  font-weight: normal;
+}

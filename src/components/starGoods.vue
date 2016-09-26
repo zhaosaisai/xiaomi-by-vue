@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="star-container">
     <div class="star-title clearfix">
-      <h2>小米明星单品</h2>
+      <h2 class="goods-title">小米明星单品</h2>
       <div class="star-change">
         <span :class="{'prev':true,'star-disabled':changeStatus}" @click="nextSlide">
           <i class="fa fa-angle-left"></i>
@@ -127,21 +127,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/css/common.scss';
   .star-container{
     width:1226px;
     height:438px;
     margin: 20px auto;
     .star-title{
       height:58px;
-      h2{
-        color:#333;
-        font-weight:200;
-        font-size:22px;
-        line-height: 58px;
-        height:58px;
-        margin:0;
-        float: left;
-      }
       .star-change{
         width:70px;
         height:25px;

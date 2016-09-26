@@ -116,8 +116,10 @@ export default {
         border-top:solid 1px #ccc;
         float: left;
         text-align: center;
+        background:#fafafa;
         a{
           display: block;
+          margin-bottom: 20px;
           span{
             display: block;;
             color: #212121;
@@ -125,6 +127,7 @@ export default {
           img{
             width:160px;
             height:160px;
+            margin-bottom: 20px;
           }
         }
         .intro{
