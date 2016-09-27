@@ -1,7 +1,7 @@
 <template lang="html">
 <div class="goods-list clearfix">
   <ul class="goods-items clearfix" v-width="234" :style="{'transform':'translateX('+(-iNow*oneLength)+'px)'}">
-    <li v-for="good in goods">
+    <li v-for="good in goods" class="common-translate">
       <a :href="good.sourceUrl">
         <img :src="good.imgUrl" alt="" />
         <span class="goods-title">

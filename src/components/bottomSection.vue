@@ -4,7 +4,8 @@
     <go-with></go-with>
     <fitting></fitting>
     <around></around>
-    <recommend></recommend>
+    <hot-comment></hot-comment>
+    <content></content>
   </div>
 </template>
 <script>
@@ -12,14 +13,16 @@
   import goWith from './goWith';
   import fitting from './fitting';
   import around from './around';
-  import recommend from './recommend';
+  import hotComment from './hotComment';
+  import content from './content';
   export default{
     components:{
       'hardware-goods':hardwareGoods,
       'go-with':goWith,
       fitting,
       around,
-      recommend
+      'hot-comment':hotComment,
+      content
     }
   }
 </script>
