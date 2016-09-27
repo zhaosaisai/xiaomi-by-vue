@@ -1,90 +1,134 @@
 <template>
   <!-- 这是一个小的slide组件 -->
-  <div class="small-container common-translate">
-      <p class="name">
-        MIUI 主题
+  <div class="small-container common-translate":style="{borderTopColor:datas.color}" @mouseover="fade=true" @mouseout="fade=false">
+      <p class="name" :style="{color:datas.color}">
+        {{datas.name}}
       </p>
-      <ul class="small-items">
-          <li class="small-item">
-          <a href="#" class="content">
-            <span class="title">剑侠世界</span>
-            <span class="intro">游戏同名主题，免费下载！吴亦凡陪你仗剑江湖！</span>
-            <span class="free">免费</span>
-            <span class="img-span"><img src="http://i3.mifile.cn/a4/f824eaec-20c3-4163-aa82-b0b3b324714b" alt="" /></span>
-          </a>
+      <ul class="small-items clearfix" :style="{'transform':'translateX('+(-iNow*oneWidth)+'px)'}">
+          <li class="small-item" v-for="data in datas.slides">
+            <a :href="data.sourceUrl" class="content" target="_blank">
+              <span class="title">{{data.title}}</span>
+              <span class="intro">{{data.intro}}</span>
+              <span class="free">{{data.freeText}}</span>
+              <a @mouseover="changeColor(datas.color)" @mouseout="resetColor" class="btn" :href="data.btnUrl" v-show="data.hasBtn" :style="{color:datas.color,borderColor:datas.color}">{{data.btnText}}</a>
+              <span class="img-span"><img :src="data.imgUrl" alt="" /></span>
+            </a>
           </li>
       </ul>
       <ul class="slide-index clearfix">
-        <li v-for="n in 4"></li>
+        <li v-for="n in 4" @click="iNow = $index" :class="{'active':iNow === $index}"></li>
       </ul>
-      <a href="javascript:;" class="fa fa-angle-left left" ></a>
-      <a href="javascript:;" class="fa fa-angle-right right"></a>
+      <a href="javascript:;" class="fa fa-angle-left left" @click="next" v-show="fade" transition="fade"></a>
+      <a href="javascript:;" class="fa fa-angle-right right" @click="prev" v-show="fade" transition="fade"></a>
   </div>
 </template>
 <script>
   export default{
     data(){
       return {
-
+        oneWidth:296,
+        iNow:0,
+        fade:false
       };
     },
-    // props:{
-    //   datas:{
-    //     type:Object,
-    //     required:true
-    //   }
-    // }
+     props:{
+       datas:{
+         type:Object,
+         required:true
+       }
+     },
+    methods:{
+      next:function(){
+        if(this.iNow === 0){
+          this.iNow = 0;
+        }else{
+          this.iNow = this.iNow - 1;
+        }
+      },
+      prev:function(){
+        if(this.iNow === this.datas.slides.length - 1){
+          this.iNow = this.datas.slides.length - 1;
+        }else{
+          this.iNow = this.iNow + 1;
+        }
+      },
+      changeColor:function(){
+        
+      }
+    }
   }
 </script>
 <style lang="scss">
   .small-container{
+    $width:296px;
     .nowrap{
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    width:296px;
+    width:$width;
     height:420px;
     background-color:#fff;
     box-sizing: border-box;
-    padding-top:40px;
+    padding-top:30px;
     text-align:center;
     border-top:solid 1px #ccc;
     position: relative;
     float: left;
     overflow: hidden;
-    .name{
-      height:30px;
-      font-size:16px;
-      @extend .nowrap;
-    }
-    span{
-      display: block;
-      width:270px;
-      margin:0 auto;
-    }
-    .title{
-      font-size: 20px;
-      @extend .nowrap;
-    }
-    .intro{
-      font-size: 12px;
-      color:#b0b0b0;
-      margin-top:10px;
-      line-height:20px;
-    }
-    .free{
-      font-size:14px;
-      margin-top:10px;
-    }
-    .img-span{
-      width:216px;
-      height: 154px;
-      margin:15px auto;
-      overflow: hidden;
-      img{
-        max-width: 100%;
-        max-height: 100%;
+    .small-items{
+      width:$width * 4;
+      transition: all .5s ease;
+      .small-item{
+        width:$width;
+        float: left;
+        height: 287px;
+        .btn{
+          display: block;
+          margin: 0 auto 10px;
+          width:130px;
+          height:25px;
+          line-height: 25px;
+          border-radius: 5px;
+          border:solid 1px;
+        }
+        .name{
+          height:30px;
+          font-size:16px;
+          @extend .nowrap;
+        }
+        span{
+          display: block;
+          width:270px;
+          margin:0 auto;
+        }
+        .title{
+          font-size: 20px;
+          @extend .nowrap;
+        }
+        .intro{
+          font-size: 12px;
+          color:#b0b0b0;
+          margin-top:10px;
+          line-height:20px;
+          height: 40px;
+          overflow: hidden;
+        }
+        .free{
+          font-size:14px;
+          margin-top:10px;
+          height:20px;
+        }
+        .img-span{
+          width:216px;
+          height: 154px;
+          margin:15px auto;
+          overflow: hidden;
+          img{
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
       }
     }
     .slide-index{
@@ -116,7 +160,6 @@
       position: absolute;
       top:50%;
       margin-top: -24px;
-      background-color: rgba(0,0,0,0);
       color:#fff;
       line-height: 48px;
       transition: all .5s ease;
@@ -129,6 +172,12 @@
     }
     a.right{
       right:0;
+    }
+    .fade-transition{
+      background-color: rgba(0,0,0,0.5);
+    }
+    .fade-enter,.fade-leave{
+      background-color: rgba(0,0,0,0);
     }
   }
 </style>

@@ -4,7 +4,7 @@
       <h2 class="goods-title">內容</h2>
     </div>
     <div class="content-slide clearfix">
-        <small-slide v-for="datas in allDatas"></small-slide>
+        <small-slide v-for="datas in allDatas" :datas="datas"></small-slide>
     </div>
   </div>
 </template>
