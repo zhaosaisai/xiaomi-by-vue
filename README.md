@@ -1,6 +1,6 @@
-# y
+# vue仿小米官网
 
-> A Vue.js project
+> Make the http:http://www.mi.com/index.html by vue.js
 
 ## Build Setup
 
@@ -10,18 +10,5 @@ npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+>使用localhost:8080访问的时候，如果出错的原因可能有：1、端口号冲突。2、项目依赖sass-loader，这个加载器依赖node-sass，有时会安装失败，注意检查
