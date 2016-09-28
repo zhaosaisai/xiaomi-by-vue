@@ -182,7 +182,7 @@
         width:163px;
         height:66px;
         display: inline-block;
-        background:url('../assets/images/gif.gif') no-repeat;
+        // background:url('../assets/images/gif.gif') no-repeat;
         margin-left:10px;
         @include margin-top(66);
       }

@@ -21,6 +21,8 @@
           <a href="javascript:;">登录</a>
           <span class="delimite">|</span>
           <a href="javascript:;">注册</a>
+          <span class="delimite">|</span>
+          <a href="javascript:;">消息通知</a>
         </div>
         <div class="shopCar" @mouseenter="carEnter" @mouseleave="carLeave">
           <i class="car"></i>
@@ -127,7 +129,7 @@
             background-color:#fff;
             box-shadow: 0 0 5px #ccc;
             overflow:hidden;
-            z-index:99;
+            z-index:101;
           }
           i{
             $size:20px;

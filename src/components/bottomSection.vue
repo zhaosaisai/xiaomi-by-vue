@@ -6,6 +6,7 @@
     <around></around>
     <hot-comment></hot-comment>
     <content></content>
+    <vedio-com></vedio-com>
   </div>
 </template>
 <script>
@@ -15,13 +16,15 @@
   import around from './around';
   import hotComment from './hotComment';
   import content from './content';
+  import vedioCom from './vedioCom';
   export default{
     components:{
       'hardware-goods':hardwareGoods,
       'go-with':goWith,
+      'hot-comment':hotComment,
+      'vedio-com':vedioCom,
       fitting,
       around,
-      'hot-comment':hotComment,
       content
     }
   }
@@ -31,5 +34,6 @@
     width:100%;
     padding-top:60px;
     background-color:#f5f5f5;
+    padding-bottom:30px;
   }
 </style>

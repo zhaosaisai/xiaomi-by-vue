@@ -10,7 +10,7 @@
               <span class="title">{{data.title}}</span>
               <span class="intro">{{data.intro}}</span>
               <span class="free">{{data.freeText}}</span>
-              <a @mouseover="changeColor(datas.color)" @mouseout="resetColor" class="btn" :href="data.btnUrl" v-show="data.hasBtn" :style="{color:datas.color,borderColor:datas.color}">{{data.btnText}}</a>
+              <a @mouseover="changeColor(datas.color,$event)" @mouseout="resetColor(datas.color,$event)" class="btn" :href="data.btnUrl" v-show="data.hasBtn" :style="{color:datas.color,borderColor:datas.color}">{{data.btnText}}</a>
               <span class="img-span"><img :src="data.imgUrl" alt="" /></span>
             </a>
           </li>
@@ -52,8 +52,13 @@
           this.iNow = this.iNow + 1;
         }
       },
-      changeColor:function(){
-        
+      changeColor:function(color, event){
+        event.target.style.backgroundColor = color;
+        event.target.style.color = "#fff";
+      },
+      resetColor:function(color, event){
+        event.target.style.color = color;
+        event.target.style.backgroundColor = "#fff";
       }
     }
   }
@@ -91,6 +96,7 @@
           line-height: 25px;
           border-radius: 5px;
           border:solid 1px;
+          transition:all .5s ease;
         }
         .name{
           height:30px;
