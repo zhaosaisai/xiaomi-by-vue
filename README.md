@@ -1,6 +1,6 @@
 # vue仿小米官网
 
-> Make the http:http://www.mi.com/index.html by vue.js
+> Make the http://www.mi.com/index.html by vue.js
 
 ## Build Setup
 
